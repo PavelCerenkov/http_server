@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+<title> Dviračio Animacija </title>
+<header> Dviračio Animacija </header>
+
+<canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+
+
+<script>
+  function init() {
+    ctx = $('#canvas')[0].getContext("2d");
+    return setInterval(drawWheel, 10);
+  }
+
+var Ratox=200;
+var Ratoy=250;
+var Kampas0=0*Math.PI/180;
+var Kampas1=90*Math.PI/180;
+var tarpas=100;
+function drawWheel()
+{
+
+
+ctx.clearRect(0,0,500,500);
+
+// korpusas
+ctx.beginPath();
+ctx.lineTo(Ratox+tarpas/2 ,Ratoy-tarpas/4);
+ctx.lineTo(Ratox, Ratoy);
+ctx.closePath();
+ctx.stroke();
+
+ctx.fillRect(Ratox, Ratoy, (tarpas/5)*2, 2);
+ctx.fillRect(Ratox+tarpas, Ratoy-tarpas/4, 2,tarpas/4 );
+ctx.fillRect(Ratox+tarpas, Ratoy-tarpas/4,-tarpas/2, 2);
+
+ctx.beginPath();
+ctx.lineTo(Ratox+(tarpas/5)*2 ,Ratoy+1);
+ctx.lineTo(Ratox+tarpas, Ratoy-tarpas/4);
+ctx.closePath();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineTo(Ratox+(tarpas/5)*2 ,Ratoy+1);
+ctx.lineTo(Ratox+tarpas/2 ,Ratoy-tarpas/4-10);
+ctx.closePath();
+ctx.stroke();
+
+//sedyne
+ctx.fillRect(Ratox+tarpas/2-10, Ratoy-tarpas/4-10, 20, 2);
+
+//vairas
+ctx.beginPath();
+ctx.lineTo(Ratox+tarpas-5 ,Ratoy-tarpas/4-20);
+ctx.lineTo(Ratox+tarpas+1 ,Ratoy-tarpas/4);
+ctx.closePath();
+ctx.stroke();
+
+ctx.fillRect(Ratox+tarpas-5, Ratoy-tarpas/4-20, -10, 2);
+
+
+// Ratas 1
+      ctx.beginPath();
+      ctx.lineTo(Ratox,Ratoy);
+      ctx.arc(Ratox,Ratoy, 20, Kampas0, Kampas1, false);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineTo(Ratox,Ratoy);
+      ctx.arc(Ratox,Ratoy, 20, Kampas0+90*Math.PI/180, Kampas1+90*Math.PI/180, false);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineTo(Ratox,Ratoy);
+      ctx.arc(Ratox,Ratoy, 20, Kampas0+180*Math.PI/180, Kampas1+180*Math.PI/180, false);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineTo(Ratox,Ratoy);
+      ctx.arc(Ratox,Ratoy, 20, Kampas0+270*Math.PI/180, Kampas1+270*Math.PI/180, false);
+      ctx.closePath();
+      ctx.stroke();
+
+// Ratas 2
+       ctx.beginPath();
+       ctx.lineTo(Ratox+tarpas,Ratoy);
+       ctx.arc(Ratox+tarpas,Ratoy, 20, Kampas0, Kampas1, false);
+       ctx.closePath();
+       ctx.stroke();
+
+       ctx.beginPath();
+       ctx.lineTo(Ratox+tarpas,Ratoy);
+       ctx.arc(Ratox+tarpas,Ratoy, 20, Kampas0+90*Math.PI/180, Kampas1+90*Math.PI/180, false);
+       ctx.closePath();
+       ctx.stroke();
+
+       ctx.beginPath();
+       ctx.lineTo(Ratox+tarpas,Ratoy);
+       ctx.arc(Ratox+tarpas,Ratoy, 20, Kampas0+180*Math.PI/180, Kampas1+180*Math.PI/180, false);
+       ctx.closePath();
+       ctx.stroke();
+
+       ctx.beginPath();
+       ctx.lineTo(Ratox+tarpas,Ratoy);
+       ctx.arc(Ratox+tarpas,Ratoy, 20, Kampas0+270*Math.PI/180, Kampas1+270*Math.PI/180, false);
+       ctx.closePath();
+       ctx.stroke();
+
+//animacija
+Kampas0+=1*Math.PI/180;
+Kampas1+=1*Math.PI/180;
+Ratox+=1;
+if(Ratox==500)Ratox=0-tarpas;
+
+}
+
+this.init();
+
+// padarė Pavel Čerenkov IT 3k 3g
+</script>
+
+</body>
+
+</html>
